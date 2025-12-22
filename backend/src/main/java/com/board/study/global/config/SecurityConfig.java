@@ -27,8 +27,7 @@ public class SecurityConfig {
 
                 // 3. 요청 권한 설정
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/member/join","api/member/login").permitAll()
-                        .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/member/join","/member/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 // 4. Form Login 비활성화 (나중에 JWT 쓸 예정이므로)

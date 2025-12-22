@@ -1,11 +1,10 @@
-
-
 <template>
- <nav>
-  <RouterLink to="/">Home</RouterLink> |
-  <RouterLink to="/login">login</RouterLink>
- </nav>
- <RouterView/>
+  <nav>
+    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/login">login</RouterLink> |
+    <RouterLink to="/join">회원가입</RouterLink>
+  </nav>
+  <RouterView />
 </template>
 <style scoped>
 /* 간단한 스타일 예시 */
