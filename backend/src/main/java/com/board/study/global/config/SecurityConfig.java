@@ -27,6 +27,7 @@ public class SecurityConfig {
 
                 // 3. 요청 권한 설정
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/member/join","/member/**").permitAll()
                         .requestMatchers("/member/join").permitAll()
                         .anyRequest().authenticated()
                 );

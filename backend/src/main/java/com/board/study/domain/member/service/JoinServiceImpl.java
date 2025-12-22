@@ -43,4 +43,24 @@ public class JoinServiceImpl implements JoinService {
                 .createdAt(saveMember.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .build();
     }
+
+    @Override
+    public boolean existsByLoginId(String loginId) {
+        return repository.existsByLoginId(loginId);
+    }
+
+    @Override
+    public boolean existsByNickname(String nickname) {
+        return repository.existsByNickname(nickname);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return repository.existsByEmail(email);
+    }
+
+    @Override
+    public boolean existsByPhone(String phone) {
+        return repository.existsByPhone(phone);
+    }
 }
