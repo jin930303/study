@@ -1,8 +1,8 @@
 <template>
   <nav>
     <RouterLink to="/">Home</RouterLink> |
-    <RouterLink to="/login">login</RouterLink> |
-    <RouterLink to="/join">회원가입</RouterLink>
+    <RouterLink to="/login">login</RouterLink>
+    <RouterLink to="/member/join">회원가입</RouterLink>
   </nav>
   <RouterView />
 </template>

@@ -28,11 +28,12 @@ public class SecurityConfig {
                 // 3. 요청 권한 설정
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/member/join","/member/**").permitAll()
+                        .requestMatchers("/member/join").permitAll()
                         .anyRequest().authenticated()
-                )
+                );
                 // 4. Form Login 비활성화 (나중에 JWT 쓸 예정이므로)
-                .formLogin(AbstractHttpConfigurer :: disable)
-                .httpBasic(AbstractHttpConfigurer :: disable);
+//                .formLogin(AbstractHttpConfigurer :: disable)
+//                .httpBasic(AbstractHttpConfigurer :: disable);
         return http.build();
     }
 
@@ -40,14 +41,17 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
+
+
+
         config.setAllowedOrigins(List.of("http://localhost:5173")); // Vue 기본 포트
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","PATCH"));
         config.setAllowedHeaders(List.of("*"));
-        config.setExposedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**",config);
+
         return source;
     }
 
