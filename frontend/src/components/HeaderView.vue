@@ -6,11 +6,14 @@
 
         <template v-if="authStore">
           <template v-if="!authStore.isLoggedIn">
+            <router-link to="/board">게시판</router-link>
             <router-link to="/login">로그인</router-link>
             <router-link to="/member/join">회원가입</router-link>
           </template>
 
           <template v-else>
+            <router-link to="/board">게시판</router-link>
+            <router-link to="/member/me">내정보</router-link>
             <span class="user-info">접속중</span>
             <button @click="handleLogout" class="logout-btn">로그아웃</button>
           </template>

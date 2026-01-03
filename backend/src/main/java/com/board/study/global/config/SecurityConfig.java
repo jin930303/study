@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .sessionManagement(session ->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 // 3. 요청 권한 설정
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/member/me").authenticated()
                         .requestMatchers("/member/join","/member/check-*").permitAll()
                         .requestMatchers("/member/refresh").permitAll()
                         .requestMatchers("/login/**","/logout/**").permitAll()
